@@ -33,7 +33,9 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-           cordova.plugins.barcodeScanner.scan(
+
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+           scanner.scan(
       function (result) {
           alert("We got a barcode\n" +
                 "Result: " + result.text + "\n" +
